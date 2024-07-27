@@ -9,9 +9,9 @@ if __name__ == "__main__":
         with urlopen(url) as response:
             res = response.read()
             print("Body response:")
-            print("\t - type: {}",format(type(res)))
+            print("\t - type: {}".format(type(res)))
             print("\t - content: {}".format(res))
-            print("\t utf8 content: {}".format(res.decode('utf-8')))
+            print("\t - utf8 content: {}".format(res.decode('utf-8')))
     except HTTPError as er:
         print("HTTPError", er)
 
