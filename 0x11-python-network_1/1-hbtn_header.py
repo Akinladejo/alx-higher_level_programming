@@ -12,8 +12,8 @@ if __name__ == "__main__":
   url = sys.argv[1]
   
   try:
-    req = request.Request(url)
-    with req.urlopen(url) as response:
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(url) as response:
       res = response.info()
       x_res = res.get("X-Request-Id")
       print(x_res)
