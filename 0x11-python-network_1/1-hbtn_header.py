@@ -1,22 +1,23 @@
 #!/usr/bin/python3
+"""Python script that fetches https://intranet.hbtn.io/status"""
 
-"""a Python script that takes in a URL, sends a request to the URL"""
 import urllib.request
 import sys
 
 if __name__ == "__main__":
-  if len(sys.argv) != 2:
-    print("sys error")
-    sys.exit(1)
-    
-  url = sys.argv[1]
-  
-  try:
-    req = urllib.request.Request(url)
-    with urllib.request.urlopen(req) as response:
-      res = response.info()
-      x_res = res.get("X-Request-Id")
-      print(x_res)
-  except Exception as e:
-    print("Error", e)
-      
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) != 2:
+        print("Usage: ./script.py <URL>")
+        sys.exit(1)
+
+    url = sys.argv[1]
+
+    try:
+        req = urllib.request.Request(url)
+        with urllib.request.urlopen(req) as response:
+            # Retrieve and print the value of the X-Request-Id header
+            response_headers = response.info()
+            x_request_id = response_headers.get('X-Request-Id')
+            print(x_request_id)
+    except Exception as e:
+        print("Error:", e)
