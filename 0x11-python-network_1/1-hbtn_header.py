@@ -4,14 +4,18 @@
 import sys
 from urllib import request
 
-def main():
+if __name__ == "__main__" :
+    if len(sys.argv) != 2:
+        print("USAGE <URL>")
+        sys.exit(1)
+    
     url = sys.argv[1]
 
-    with request.urlopen(url) as response:
-        headers = response.headers
-        x_request_id = headers.get('X-Request-Id')
-        print(x_request_id)
+    try:
+        with request.urlopen(url) as response:
+            res = response.headers
+            x_res = res.get('X-Request-Id')
+            print(x_res)
 
-if __name__ == "__main__":
-    main()
-
+    except Exception as e:
+        print("error", e)
