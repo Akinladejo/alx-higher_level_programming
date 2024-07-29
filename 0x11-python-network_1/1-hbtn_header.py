@@ -13,7 +13,7 @@ if __name__ == "__main__":
   
   try:
     req = urllib.request.Request(url)
-    with urllib.request.urlopen(url) as response:
+    with urllib.request.urlopen(req) as response:
       res = response.info()
       x_res = res.get("X-Request-Id")
       print(x_res)
