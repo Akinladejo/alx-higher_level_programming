@@ -1,12 +1,21 @@
 #!/usr/bin/python3
-"""Python script that fetches https://alx-intranet.hbtn.io/status"""
+"""
+Python script that fetches https://alx-intranet.hbtn.io/status
+"""
+
 import requests
-def main():
-    url = "https://alx-intranet.hbtn.io/status"
+
+
+def get_alx_intranet(url='https://alx-intranet.hbtn.io/status'):
+    """
+    Send a GET request to the url
+    and print the response
+    """
     res = requests.get(url)
     print("Body response:")
-    print("\t - type: {}".format(type(res.text)))
-    print("\t - content: {}".format(res.text))
+    print("\t- type: {}".format(type(res.text)))
+    print("\t- content: {}".format(res.text))
+
 
 if __name__ == "__main__":
-    main()
+    get_alx_intranet()
