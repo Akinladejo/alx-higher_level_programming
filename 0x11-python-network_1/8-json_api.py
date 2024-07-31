@@ -5,13 +5,13 @@ import sys
 
 def main():
     url = "http://0.0.0.0:5000/search_user"
-    data = {"q" : q}
     if len(sys.argv) < 2:
         q = ""
     else:
         q = sys.argv[1]
 
-    res = requests.get(url, data=data)
+    data = {"q" : q}
+    res = requests.post(url, data=data)
     try:
         json_res = res.json()
         if json_res:
