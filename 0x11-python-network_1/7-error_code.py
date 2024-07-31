@@ -9,7 +9,7 @@ followed by the value of the HTTP status code.
 import requests
 import sys
 
-def main():
+if __name__ == "__main__":
     url = sys.argv[1]
     res = requests.get(url)
     if res.status_code >= 400:
@@ -17,5 +17,4 @@ def main():
     else:
         print(res.text)
         
-if __name__ == "__main__":
-    main()
+
