@@ -14,3 +14,6 @@ def main():
                             commit[i].get("commit").get("author").get("name")))
   except IndexError:
     pass
+
+if __name__ == "__main__:
+main()
