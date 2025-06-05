@@ -1,2 +1,1 @@
-pythn reademe
 Python Readme
